@@ -1,4 +1,4 @@
-import { cn } from "@lib/classNames.ts";
+import { cn } from "@utils/classNames.ts";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
