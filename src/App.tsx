@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { ProductCard } from "@components/ProductCard/ProductCard.tsx";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>Vite + React</h1>
+      <h1>Каталог товаров</h1>
+      <ProductCard title="Конфеты" origin="Россия" price={123400} />
     </>
   );
 }
