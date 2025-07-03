@@ -1,3 +1,5 @@
+import { cn } from "@lib/classNames.ts";
+
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** The content to be rendered inside the card */
@@ -10,11 +12,22 @@ export interface ButtonProps
   type?: "submit" | "button";
 }
 
-export const Button = (props: ButtonProps) => {
+const Button = (props: ButtonProps) => {
   const { children, className, type = "button", ...rest } = props;
   return (
-    <button className={className} type={type} {...rest}>
+    <button
+      className={cn(
+        "inline-flex cursor-pointer items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all disabled:pointer-events-none disabled:opacity-50",
+        "bg-blue-700 text-white hover:bg-blue-700/90 hover:shadow-xs active:scale-95",
+        "h-9 px-4 py-2 has-[>svg]:px-3",
+        className,
+      )}
+      type={type}
+      {...rest}
+    >
       {children}
     </button>
   );
 };
+
+export { Button };

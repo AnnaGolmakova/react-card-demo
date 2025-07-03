@@ -1,3 +1,5 @@
+import { cn } from "@lib/classNames.ts";
+
 export interface CardProps {
   /** The content to be rendered inside the card */
   children: React.ReactNode;
@@ -8,5 +10,14 @@ export interface CardProps {
 
 export const Card = (props: CardProps) => {
   const { children, className } = props;
-  return <div className={className}>{children}</div>;
+  return (
+    <div
+      className={cn(
+        "relative rounded-md bg-white p-6 shadow-md hover:shadow-lg",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
 };
