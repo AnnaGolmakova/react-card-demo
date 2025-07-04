@@ -2,22 +2,12 @@ import { Button } from "@components/Button/Button";
 import { Card } from "@components/Card/Card";
 import { useLocale } from "@context/LocaleContext";
 import { formatCurrency } from "@utils/formatCurrency";
+import { cn } from "@utils/classNames";
+import type { ProductType } from "@types/product";
 
-export interface ProductCardProps {
-  /** Product title */
-  title: string;
-
-  /** Product description */
-  description?: string;
-
-  /** Country of origin */
-  origin?: string;
-
-  /** Product price, in cents */
-  price: number;
-
-  /** URL to product image */
-  imageUrl?: string;
+export interface ProductCardProps extends ProductType {
+  className?: string;
+  onClick?: (id: string, event: React.PointerEvent<HTMLElement>) => void;
 }
 
 interface ProductDetailsProps {
@@ -38,20 +28,20 @@ const ProductDetails = (props: ProductDetailsProps) => {
 };
 
 export const ProductCard = (props: ProductCardProps) => {
-  const { title, description, origin, price, imageUrl } = props;
+  const { title, description, origin, price, imageUrl, className } = props;
   const { locale } = useLocale();
 
   return (
-    <Card className="flex flex-col gap-6">
+    <Card className={cn("flex flex-col gap-6", className)}>
       <ProductDetails origin={origin} title={title} description={description} />
-      <div>
-        <img src={imageUrl} />
+      <div className="mb-auto flex">
+        <img className="object-fit h-full w-full" src={imageUrl} />
       </div>
-      <div className="flex flex-row items-center justify-between gap-6">
+      <div className="flex flex-row items-center justify-between gap-6 border-t border-slate-300 pt-6">
         <div className="text-2xl font-bold">
           {formatCurrency(price, { currency: "RUB", locale })}
         </div>
-        <Button>Добавить в корзину</Button>
+        <Button>В корзину</Button>
       </div>
     </Card>
   );

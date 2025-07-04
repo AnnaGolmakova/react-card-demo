@@ -1,0 +1,19 @@
+export type ProductType = {
+  /** Product id */
+  id: string;
+
+  /** Product title */
+  title: string;
+
+  /** Product description */
+  description?: string;
+
+  /** Country of origin */
+  origin?: string;
+
+  /** Product price, in cents */
+  price: number;
+
+  /** URL to product image */
+  imageUrl?: string;
+};
