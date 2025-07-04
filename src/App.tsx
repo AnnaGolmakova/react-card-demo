@@ -1,6 +1,6 @@
 import { ProductList } from "@components/ProductList/ProductList";
 import { LocaleProvider } from "@context/LocaleContext";
-import type { ProductType } from "@types/product";
+import type { ProductType } from "./types/product";
 import { useEffect, useState } from "react";
 import "./App.css";
 
@@ -12,7 +12,8 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setProducts(
-          data.products.map((el) => ({
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          data.products.map((el: any) => ({
             title: el.title,
             origin: "Россия",
             price: { amount: el.price * 100, currency: "RUB" },

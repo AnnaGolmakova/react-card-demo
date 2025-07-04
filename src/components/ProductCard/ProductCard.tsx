@@ -3,7 +3,7 @@ import { Card } from "@components/Card/Card";
 import { useLocale } from "@context/LocaleContext";
 import { formatCurrency } from "@utils/formatCurrency";
 import { cn } from "@utils/classNames";
-import type { ProductType } from "@types/product";
+import type { ProductType } from "../../types/product";
 
 export interface ProductCardProps extends ProductType {
   className?: string;

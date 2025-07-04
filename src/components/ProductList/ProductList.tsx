@@ -1,5 +1,5 @@
 import { ProductCard } from "@components/ProductCard/ProductCard";
-import type { ProductType } from "@types/product";
+import type { ProductType } from "../../types/product";
 
 export interface ProductListProps {
   elements: ProductType[];

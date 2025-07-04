@@ -1,4 +1,4 @@
-import type { PriceType } from "@types/price";
+import type { PriceType } from "./price";
 
 export type ProductType = {
   /** Product id */
