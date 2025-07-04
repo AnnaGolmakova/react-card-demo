@@ -2,9 +2,9 @@
 
 This is a demo of a product card using React and Typescript
 
-[Screenshot](./docs/screen.png)
-
 [Open on Github Pages](https://annagolmakova.github.io/react-card-demo/)
+
+![Screenshot](./docs/screen.png)
 
 ## Technologies Used
 
