@@ -1,4 +1,4 @@
-import { cn } from "@utils/classNames.ts";
+import { cn } from "@utils/classNames";
 
 export interface CardProps {
   /** The content to be rendered inside the card */
