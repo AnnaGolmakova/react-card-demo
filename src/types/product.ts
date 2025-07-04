@@ -1,3 +1,5 @@
+import type { PriceType } from "@types/price";
+
 export type ProductType = {
   /** Product id */
   id: string;
@@ -12,7 +14,7 @@ export type ProductType = {
   origin?: string;
 
   /** Product price, in cents */
-  price: number;
+  price: PriceType;
 
   /** URL to product image */
   imageUrl?: string;

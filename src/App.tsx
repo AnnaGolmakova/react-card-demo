@@ -1,7 +1,7 @@
 import { ProductList } from "@components/ProductList/ProductList";
 import { LocaleProvider } from "@context/LocaleContext";
-import { useState, useEffect } from "react";
 import type { ProductType } from "@types/product";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           data.products.map((el) => ({
             title: el.title,
             origin: "Россия",
-            price: el.price * 100,
+            price: { amount: el.price * 100, currency: "RUB" },
             imageUrl: el.thumbnail,
           })),
         );

@@ -39,7 +39,7 @@ export const ProductCard = (props: ProductCardProps) => {
       </div>
       <div className="flex flex-row items-center justify-between gap-6 border-t border-slate-300 pt-6">
         <div className="text-2xl font-bold">
-          {formatCurrency(price, { currency: "RUB", locale })}
+          {formatCurrency(price.amount, { currency: price.currency, locale })}
         </div>
         <Button>В корзину</Button>
       </div>
