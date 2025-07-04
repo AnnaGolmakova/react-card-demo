@@ -1,5 +1,7 @@
 import { Button } from "@components/Button/Button";
 import { Card } from "@components/Card/Card";
+import { useLocale } from "@context/LocaleContext";
+import { formatCurrency } from "@utils/formatCurrency";
 
 export interface ProductCardProps {
   /** Product title */
@@ -37,6 +39,8 @@ const ProductDetails = (props: ProductDetailsProps) => {
 
 export const ProductCard = (props: ProductCardProps) => {
   const { title, description, origin, price, imageUrl } = props;
+  const { locale } = useLocale();
+
   return (
     <Card className="flex flex-col gap-6">
       <ProductDetails origin={origin} title={title} description={description} />
@@ -44,7 +48,9 @@ export const ProductCard = (props: ProductCardProps) => {
         <img src={imageUrl} />
       </div>
       <div className="flex flex-row items-center justify-between gap-6">
-        <div className="text-2xl font-bold">{price}</div>
+        <div className="text-2xl font-bold">
+          {formatCurrency(price, { currency: "RUB", locale })}
+        </div>
         <Button>Добавить в корзину</Button>
       </div>
     </Card>
